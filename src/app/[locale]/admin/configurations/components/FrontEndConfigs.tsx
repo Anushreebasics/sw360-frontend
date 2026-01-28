@@ -32,13 +32,7 @@ const FrontEndConfigs = (): JSX.Element => {
     const { status } = useSession()
     const apiEndpoint = `configurations/container/${ConfigurationContainers.UI_CONFIGURATION}`
 
-    useEffect(() => {
-        if (status === 'unauthenticated') {
-            signOut()
-        }
-    }, [
-        status,
-    ])
+    // Removed redundant signOut() call for unauthenticated status
 
     const fetchUiConfig = useCallback(async () => {
         const session = await getSession()
@@ -243,8 +237,8 @@ const FrontEndConfigs = (): JSX.Element => {
                                         <PillsInput
                                             tags={
                                                 arrayKeyStates[
-                                                    UIConfigKeys
-                                                        .UI_ORG_ECLIPSE_SW360_DISABLE_CLEARING_REQUEST_FOR_PROJECT_GROUP
+                                                UIConfigKeys
+                                                    .UI_ORG_ECLIPSE_SW360_DISABLE_CLEARING_REQUEST_FOR_PROJECT_GROUP
                                                 ]
                                             }
                                             onTagsChange={onArrayStateChangeHandler(
@@ -342,7 +336,7 @@ const FrontEndConfigs = (): JSX.Element => {
                                             setCurrentUiConfig={setCurrentUiConfig}
                                             checked={
                                                 currentUiConfig[
-                                                    UIConfigKeys.UI_ENABLE_ADD_LICENSE_INFO_TO_RELEASE_BUTTON
+                                                UIConfigKeys.UI_ENABLE_ADD_LICENSE_INFO_TO_RELEASE_BUTTON
                                                 ] === 'true'
                                             }
                                             propKey={UIConfigKeys.UI_ENABLE_ADD_LICENSE_INFO_TO_RELEASE_BUTTON}
@@ -387,7 +381,7 @@ const FrontEndConfigs = (): JSX.Element => {
                                             setCurrentUiConfig={setCurrentUiConfig}
                                             checked={
                                                 currentUiConfig[
-                                                    UIConfigKeys.UI_ENABLE_SECURITY_VULNERABILITY_MONITORING
+                                                UIConfigKeys.UI_ENABLE_SECURITY_VULNERABILITY_MONITORING
                                                 ] === 'true'
                                             }
                                             propKey={UIConfigKeys.UI_ENABLE_SECURITY_VULNERABILITY_MONITORING}
@@ -403,7 +397,7 @@ const FrontEndConfigs = (): JSX.Element => {
                                             setCurrentUiConfig={setCurrentUiConfig}
                                             checked={
                                                 currentUiConfig[
-                                                    UIConfigKeys.UI_REST_APITOKEN_WRITE_GENERATOR_ENABLE
+                                                UIConfigKeys.UI_REST_APITOKEN_WRITE_GENERATOR_ENABLE
                                                 ] === 'true'
                                             }
                                             propKey={UIConfigKeys.UI_REST_APITOKEN_WRITE_GENERATOR_ENABLE}

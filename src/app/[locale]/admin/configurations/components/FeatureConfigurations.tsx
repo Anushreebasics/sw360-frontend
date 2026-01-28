@@ -32,13 +32,7 @@ const FeatureConfigurations = (): JSX.Element => {
     const { status } = useSession()
     const apiEndpoint = `configurations/container/${ConfigurationContainers.SW360_CONFIGURATION}`
 
-    useEffect(() => {
-        if (status === 'unauthenticated') {
-            signOut()
-        }
-    }, [
-        status,
-    ])
+    // Removed redundant signOut() call for unauthenticated status
 
     const fetchSw360Config = useCallback(async () => {
         const session = await getSession()
@@ -152,7 +146,7 @@ const FeatureConfigurations = (): JSX.Element => {
                                             setCurrentConfig={setCurrentConfig}
                                             checked={
                                                 currentConfig[
-                                                    ConfigKeys.IS_COMPONENT_VISIBILITY_RESTRICTION_ENABLED
+                                                ConfigKeys.IS_COMPONENT_VISIBILITY_RESTRICTION_ENABLED
                                                 ] === 'true'
                                             }
                                             propKey={ConfigKeys.IS_COMPONENT_VISIBILITY_RESTRICTION_ENABLED}

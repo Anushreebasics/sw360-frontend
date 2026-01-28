@@ -86,13 +86,7 @@ const SPDXDocumentTab = ({ releaseId }: Props): ReactNode => {
     const [isModeFull, setIsModeFull] = useState(true)
     const { status } = useSession()
 
-    useEffect(() => {
-        if (status === 'unauthenticated') {
-            signOut()
-        }
-    }, [
-        status,
-    ])
+    // Removed redundant signOut() call for unauthenticated status
 
     const fetchData = useCallback(async (url: string) => {
         const session = await getSession()

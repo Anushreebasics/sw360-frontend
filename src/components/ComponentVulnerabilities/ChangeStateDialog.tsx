@@ -46,13 +46,7 @@ const ChangeStateDialog = ({ show, setShow, state, selectedVulner }: Props): JSX
     const [comment, setComment] = useState('')
     const { status } = useSession()
 
-    useEffect(() => {
-        if (status === 'unauthenticated') {
-            signOut()
-        }
-    }, [
-        status,
-    ])
+    // Removed redundant signOut() call for unauthenticated status
 
     const handleCloseDialog = () => {
         setShow(!show)

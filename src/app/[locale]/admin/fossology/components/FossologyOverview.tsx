@@ -40,13 +40,7 @@ export default function FossologyOverview(): ReactNode {
     const [fossologyStatus, setFossologyStatus] = useState<FossologyStatus>(FossologyStatus.UNKNOWN)
     const { status } = useSession()
 
-    useEffect(() => {
-        if (status === 'unauthenticated') {
-            signOut()
-        }
-    }, [
-        status,
-    ])
+    // Removed redundant signOut() call for unauthenticated status
 
     const fetchData = useCallback(async (url: string, serverConfig: boolean) => {
         const session = await getSession()
