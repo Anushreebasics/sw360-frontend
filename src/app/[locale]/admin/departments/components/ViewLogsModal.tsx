@@ -30,13 +30,7 @@ const ViewLogsModal = ({ show, setShow }: Props): JSX.Element => {
     const [logFileContents, setLogFileContents] = useState<string[]>([])
     const { status } = useSession()
 
-    useEffect(() => {
-        if (status === 'unauthenticated') {
-            signOut()
-        }
-    }, [
-        status,
-    ])
+    // Removed redundant signOut() call for unauthenticated status
 
     const fetchLogFiles = useCallback(async () => {
         const session = await getSession()

@@ -36,13 +36,7 @@ function EditSecondaryDepartmentAndRolesModal({ show, setShow, editingUserId }: 
     const [isUpdateSuccess, setIsUpdateSuccess] = useState<boolean>(false)
     const { status } = useSession()
 
-    useEffect(() => {
-        if (status === 'unauthenticated') {
-            signOut()
-        }
-    }, [
-        status,
-    ])
+    // Removed redundant signOut() call for unauthenticated status
 
     useEffect(() => {
         if (show === false) return

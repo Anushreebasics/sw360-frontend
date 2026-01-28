@@ -80,13 +80,7 @@ const FossologyClearing = ({ show, setShow, releaseId }: Props): JSX.Element => 
     })
     const { status } = useSession()
 
-    useEffect(() => {
-        if (status === 'unauthenticated') {
-            signOut()
-        }
-    }, [
-        status,
-    ])
+    // Removed redundant signOut() call for unauthenticated status
 
     const resetTimeCountDown = () => {
         setTimeInterval(5)
@@ -403,11 +397,11 @@ const FossologyClearing = ({ show, setShow, releaseId }: Props): JSX.Element => 
                     <div>
                         {t('Found source attachment')}:
                         {release &&
-                        numberOfSourceAttachment.current === 1 &&
-                        release._embedded['sw360:attachments'] !== undefined
+                            numberOfSourceAttachment.current === 1 &&
+                            release._embedded['sw360:attachments'] !== undefined
                             ? release._embedded['sw360:attachments']
-                                  .filter((attachment: Attachment) => attachment.attachmentType === 'SOURCE')
-                                  .at(0)?.filename
+                                .filter((attachment: Attachment) => attachment.attachmentType === 'SOURCE')
+                                .at(0)?.filename
                             : 'unknown'}
                     </div>
                     <div className='row mt-2'>

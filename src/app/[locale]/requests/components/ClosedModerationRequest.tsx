@@ -38,13 +38,7 @@ function ClosedModerationRequest(): ReactNode {
     const session = useSession()
     const params = useSearchParams()
 
-    useEffect(() => {
-        if (session.status === 'unauthenticated') {
-            void signOut()
-        }
-    }, [
-        session,
-    ])
+    // Removed redundant signOut() call for unauthenticated status
 
     const formatDate = (timestamp: number | undefined): string | null => {
         if (timestamp === undefined) {
@@ -179,8 +173,8 @@ function ClosedModerationRequest(): ReactNode {
                 )
                     ? []
                     : data['_embedded']['sw360:moderationRequests'].filter(
-                          (mr) => mr.moderationState === 'APPROVED' || mr.moderationState === 'REJECTED',
-                      )
+                        (mr) => mr.moderationState === 'APPROVED' || mr.moderationState === 'REJECTED',
+                    )
                 setModerationRequestData(openModerationRequests)
             } catch (error) {
                 ApiUtils.reportError(error)

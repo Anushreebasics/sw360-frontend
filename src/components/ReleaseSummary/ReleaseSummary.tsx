@@ -97,13 +97,7 @@ const ReleaseSummary = ({
     const languagesSuggestions = useConfigValue(UIConfigKeys.UI_PROGRAMMING_LANGUAGES) as string[] | null
     const platformSuggestions = useConfigValue(UIConfigKeys.UI_SOFTWARE_PLATFORMS) as string[] | null
 
-    useEffect(() => {
-        if (status === 'unauthenticated') {
-            signOut()
-        }
-    }, [
-        status,
-    ])
+    // ...existing code...
 
     const setMainLicensesToPayload = (mainLicenses: { [k: string]: string }) => {
         setMainLicenses(mainLicenses)

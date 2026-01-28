@@ -66,13 +66,7 @@ export default function ComponentEditSummary({
             ? (useConfigValue(UIConfigKeys.UI_COMPONENT_EXTERNALKEYS) as string[])
             : undefined
 
-    useEffect(() => {
-        if (status === 'unauthenticated') {
-            signOut()
-        }
-    }, [
-        status,
-    ])
+    // Removed redundant signOut() call for unauthenticated status
 
     const fetchData = useCallback(async (url: string) => {
         const session = await getSession()
