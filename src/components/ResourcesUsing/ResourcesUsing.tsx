@@ -27,8 +27,6 @@ const ResourcesUsing = ({ documentId, documentType, documentName }: Props): JSX.
     const [resourcesUsing, setResourceUsing] = useState<Resources | undefined>(undefined)
     const session = useSession()
 
-    // ...existing code...
-
     const [showProcessing, setShowProcessing] = useState(false)
 
     useEffect(() => {

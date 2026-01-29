@@ -32,8 +32,6 @@ const TokensTable = ({ generatedToken }: Props): ReactNode => {
     const session = useSession()
     const [revoked, setRevoked] = useState(false)
 
-    // Removed redundant signOut() call for unauthenticated status
-
     const revokeToken = async (tokenName: string) => {
         try {
             const session = await getSession()

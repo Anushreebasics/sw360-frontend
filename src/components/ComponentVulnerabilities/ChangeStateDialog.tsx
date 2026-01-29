@@ -46,8 +46,6 @@ const ChangeStateDialog = ({ show, setShow, state, selectedVulner }: Props): JSX
     const [comment, setComment] = useState('')
     const { status } = useSession()
 
-    // Removed redundant signOut() call for unauthenticated status
-
     const handleCloseDialog = () => {
         setShow(!show)
     }

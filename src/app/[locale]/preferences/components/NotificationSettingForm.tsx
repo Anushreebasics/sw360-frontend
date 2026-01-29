@@ -33,8 +33,6 @@ const NotificationSettingForm = (): ReactNode => {
     const t = useTranslations('default')
     const [user, setUser] = useState<User | undefined>(undefined)
     const { status } = useSession()
-
-    // Removed redundant signOut() call for unauthenticated status
     const [notificationSetting, setNotificationSetting] = useState<NotificationSetting>({
         wantsMailNotification: false,
         notificationPreferences: {},

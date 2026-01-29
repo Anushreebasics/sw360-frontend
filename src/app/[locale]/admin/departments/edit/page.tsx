@@ -37,8 +37,6 @@ const EditDepartmentPage = (): JSX.Element => {
     const allEmails = useRef<string[]>([])
     const { status } = useSession()
 
-    // Removed redundant signOut() call for unauthenticated status
-
     const handleUpdateDepartmentMembers = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         if (memberEmails === undefined || secondaryDepartmentName === null) {

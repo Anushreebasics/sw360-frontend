@@ -32,8 +32,6 @@ const FeatureConfigurations = (): JSX.Element => {
     const { status } = useSession()
     const apiEndpoint = `configurations/container/${ConfigurationContainers.SW360_CONFIGURATION}`
 
-    // Removed redundant signOut() call for unauthenticated status
-
     const fetchSw360Config = useCallback(async () => {
         const session = await getSession()
         if (CommonUtils.isNullOrUndefined(session)) {

@@ -94,8 +94,6 @@ function AddProjects(): JSX.Element {
     const [isDependencyNetworkFeatureEnabled, setDependencyNetworkFeatureEnabled] = useState(false)
     const { status } = useSession()
 
-    // Removed redundant signOut() call for unauthenticated status
-
     useEffect(() => {
         ; (async () => {
             try {

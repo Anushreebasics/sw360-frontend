@@ -90,8 +90,6 @@ const EditComponent = ({ componentId }: Props): ReactNode => {
     })
     const { status } = useSession()
 
-    // Removed redundant signOut() call for unauthenticated status
-
     useEffect(() => {
         const controller = new AbortController()
         const signal = controller.signal

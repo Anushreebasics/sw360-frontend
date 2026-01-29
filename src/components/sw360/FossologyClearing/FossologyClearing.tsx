@@ -80,8 +80,6 @@ const FossologyClearing = ({ show, setShow, releaseId }: Props): JSX.Element => 
     })
     const { status } = useSession()
 
-    // Removed redundant signOut() call for unauthenticated status
-
     const resetTimeCountDown = () => {
         setTimeInterval(5)
     }

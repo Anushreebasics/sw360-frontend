@@ -92,8 +92,6 @@ const EditSPDXDocument = ({
     const [toggleOther, setToggleOther] = useState(false)
     const { status } = useSession()
 
-    // Removed redundant signOut() call for unauthenticated status
-
     const fetchData = useCallback(async (url: string) => {
         const session = await getSession()
         if (CommonUtils.isNullOrUndefined(session)) return signOut()

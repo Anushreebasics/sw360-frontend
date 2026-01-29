@@ -36,8 +36,6 @@ function ECC(): ReactNode {
     const t = useTranslations('default')
     const session = useSession()
 
-    // Removed redundant signOut() call for unauthenticated status
-
     const columns = useMemo<ColumnDef<ECCInterface>[]>(
         () => [
             {

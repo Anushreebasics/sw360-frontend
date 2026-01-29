@@ -32,8 +32,6 @@ const FrontEndConfigs = (): JSX.Element => {
     const { status } = useSession()
     const apiEndpoint = `configurations/container/${ConfigurationContainers.UI_CONFIGURATION}`
 
-    // Removed redundant signOut() call for unauthenticated status
-
     const fetchUiConfig = useCallback(async () => {
         const session = await getSession()
         if (CommonUtils.isNullOrUndefined(session)) {

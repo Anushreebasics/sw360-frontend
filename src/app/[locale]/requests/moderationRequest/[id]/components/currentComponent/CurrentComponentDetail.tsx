@@ -49,8 +49,6 @@ const CurrentComponentDetail = ({ componentId }: Props): ReactNode => {
     const [changeLogId, setChangeLogId] = useState('')
     const session = useSession()
 
-    // Removed redundant signOut() call for unauthenticated status
-
     const tabList = [
         {
             id: CommonTabIds.SUMMARY,
